@@ -3,7 +3,7 @@ from flask import Flask, render_template, request
 from sumy.nlp.stemmers import Stemmer
 from sumy.nlp.tokenizers import Tokenizer
 from sumy.parsers.plaintext import PlaintextParser
-from sumy.summarizers.lsa import LsaSummarizer
+from sumy.summarizers.lex_rank import LexRankSummarizer
 
 # Automatically download NLTK tokenizers on startup if missing
 for resource in ['punkt', 'punkt_tab']:
@@ -22,7 +22,7 @@ def summarize_text(text, num_sentences=3):
 
   parser = PlaintextParser.from_string(text, Tokenizer('english'))
   stemmer = Stemmer('english')
-  summarizer = LsaSummarizer(stemmer)
+  summarizer = LexRankSummarizer(stemmer)
 
   # Extract key sentences
   sentences = summarizer(parser.document, num_sentences)
