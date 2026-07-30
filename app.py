@@ -1,7 +1,7 @@
 import nltk
 from flask import Flask, render_template, request
 from sumy.nlp.stemmers import Stemmer
-from sumy.nlp.tokens import Tokenizer
+from sumy.nlp.tokenizers import Tokenizer
 from sumy.parsers.plaintext import PlaintextParser
 from sumy.summarizers.lsa import LsaSummarizer
 
